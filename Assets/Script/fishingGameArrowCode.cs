@@ -44,7 +44,6 @@ public class fishingGameArrowCode : MonoBehaviour
 	
 	private void updateFishingManager()
 	{
-		Debug.Log("update");
 		transform.position = arrowDefaultCoord;
 		fishingMinigameManager.timingResult(curColor);
 	}

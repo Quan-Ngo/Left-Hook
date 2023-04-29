@@ -19,12 +19,16 @@ public class FishingMinigameManager : MonoBehaviour
 	[SerializeField] private Text mashButtonDisplay;
 	[SerializeField] private Text distanceDisplay;
 	[SerializeField] private float timeLimit;
+	[SerializeField] private GameObject boxer;
+	[SerializeField] private GameObject fish;
+	[SerializeField] private GameObject HPBar;
 	
 	private float reelDistance;
 	
     // Start is called before the first frame update
     void Start()
     {
+		reelDistance = defaultReelDistance;
 		StartCoroutine(waitForNextBite());
     }
 
@@ -36,7 +40,24 @@ public class FishingMinigameManager : MonoBehaviour
 			reelDistance -= reelStrength;
         }
 		distanceDisplay.text = "Fish distance: " + (int) reelDistance;
+		
+		if (reelDistance <= 0)
+		{
+			fishGameSuccess();
+		}
     }
+	
+	private void fishGameSuccess()
+	{
+		StopAllCoroutines();
+		
+		mashButtonDisplay.enabled = false;
+		distanceDisplay.enabled = false;
+		
+		boxer.SetActive(true);
+		fish.SetActive(true);
+		HPBar.SetActive(true);
+	}
 	
 	public void timingResult(string color)
 	{
@@ -63,7 +84,6 @@ public class FishingMinigameManager : MonoBehaviour
 	IEnumerator waitForNextBite()
 	{
 		yield return new WaitForSeconds(Random.Range(5, 8));
-		Debug.Log("new bite");
 		
 		reelDistance = defaultReelDistance;
 		mashButtonDisplay.enabled = true;
