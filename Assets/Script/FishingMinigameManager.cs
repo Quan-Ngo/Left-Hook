@@ -10,7 +10,7 @@ public class FishingMinigameManager : MonoBehaviour
 	[SerializeField] private GameObject fishingBar;
 	[SerializeField] private float buttonMashChangeRate;
 	[SerializeField] private ButtonToMash buttonToMash;
-	[SerializeField] private float reelDistance;
+	[SerializeField] private float defaultReelDistance;
 	[SerializeField] private float fishResist;
 	[SerializeField] private float reelStrength;
 	[SerializeField] private float greenBonus;
@@ -18,13 +18,14 @@ public class FishingMinigameManager : MonoBehaviour
 	[SerializeField] private float fishingBarRate;
 	[SerializeField] private Text mashButtonDisplay;
 	[SerializeField] private Text distanceDisplay;
+	[SerializeField] private float timeLimit;
+	
+	private float reelDistance;
 	
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(buttonMashChangeTimer());
-		StartCoroutine(fishResistCalc());
-		StartCoroutine(fishingBarPopUp());
+		StartCoroutine(waitForNextBite());
     }
 
     // Update is called once per frame
@@ -50,6 +51,29 @@ public class FishingMinigameManager : MonoBehaviour
 				break;
 		}
 	}
+	
+	private void fishEscape()
+	{
+		StopAllCoroutines();
+		mashButtonDisplay.enabled = false;
+		distanceDisplay.enabled = false;
+		StartCoroutine(waitForNextBite());
+	}
+	
+	IEnumerator waitForNextBite()
+	{
+		yield return new WaitForSeconds(Random.Range(5, 8));
+		Debug.Log("new bite");
+		
+		reelDistance = defaultReelDistance;
+		mashButtonDisplay.enabled = true;
+		distanceDisplay.enabled = true;
+        StartCoroutine(buttonMashChangeTimer());
+		StartCoroutine(fishResistCalc());
+		StartCoroutine(fishingBarPopUp());
+		StartCoroutine(fishingTimeLimit());
+	}
+		
 	
 	IEnumerator buttonMashChangeTimer()
 	{
@@ -107,5 +131,11 @@ public class FishingMinigameManager : MonoBehaviour
 			yield return new WaitForSeconds(fishingBarRate);
 			fishingBar.SetActive(true);
 		}
+	}
+	
+	IEnumerator fishingTimeLimit()
+	{
+		yield return new WaitForSeconds(timeLimit);
+		fishEscape();
 	}
 }
