@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	private enum Position {LEFT, RIGHT, MID}
-	
-	private Position dodgePosition;
 	private bool animationLock;
+	
+	[SerializeField] private Position dodgePosition;
+	[SerializeField] private int maxHealth;
+	[SerializeField] private int currentHealth;
 	
     public Animator anim;
 	public FishAI fish;
@@ -16,7 +18,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentHealth = maxHealth;
+		dodgePosition = Position.MID;
     }
 
     // Update is called once per frame
@@ -73,5 +76,35 @@ public class PlayerController : MonoBehaviour
 	public void resetDodgePosition()
 	{
 		dodgePosition = Position.MID;
+	}
+	
+	public void getHit(string hitPos)
+	{
+		switch (hitPos)
+		{
+			case "left":
+				if (dodgePosition == Position.LEFT)
+				{
+					takeDamage();
+				}
+				break;
+			case "right":
+				if (dodgePosition == Position.LEFT)
+				{
+					takeDamage();
+				}
+				break;
+			case "mid":
+				if (dodgePosition == Position.MID)
+				{
+					takeDamage();
+				}
+				break;
+		}
+	}
+	
+	private void takeDamage()
+	{
+		currentHealth -= 1;
 	}
 }
