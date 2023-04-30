@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4178175226232412072, guid: 9ce3fad0bc7725d4093aef04b1239bf7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.010644436
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4178175226232412072, guid: 9ce3fad0bc7725d4093aef04b1239bf7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4178175226232412117, guid: 9ce3fad0bc7725d4093aef04b1239bf7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4178175226232412119, guid: 9ce3fad0bc7725d4093aef04b1239bf7, type: 3}
       propertyPath: m_SortingLayer
@@ -415,6 +415,19 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 4178175226232412118, guid: 9ce3fad0bc7725d4093aef04b1239bf7, type: 3}
   m_PrefabInstance: {fileID: 20622653}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &612123490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612123485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2be6d8a05558ae545bc7a9a7598ce004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 612123486}
 --- !u!1001 &807725347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,6 +442,10 @@ PrefabInstance:
     - target: {fileID: 6485688345088538978, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_Name
       value: FishingMinigameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485688345088538978, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6485688345088538988, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_RootOrder
