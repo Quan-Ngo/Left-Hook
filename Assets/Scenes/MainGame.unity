@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4178175226232412117, guid: 9ce3fad0bc7725d4093aef04b1239bf7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4178175226232412119, guid: 9ce3fad0bc7725d4093aef04b1239bf7, type: 3}
       propertyPath: m_SortingLayer
@@ -407,6 +407,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c74d023e4e6cb458a21d91fd742dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dodgePosition: 0
+  maxHealth: 100
+  currentHealth: 0
   anim: {fileID: 612123487}
   fish: {fileID: 1263873483}
   damage: 1
@@ -445,7 +448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6485688345088538978, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6485688345088538988, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_RootOrder
@@ -517,7 +520,7 @@ PrefabInstance:
       objectReference: {fileID: 1348618560}
     - target: {fileID: 6485688345088538989, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: defaultReelDistance
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
@@ -731,6 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fish: {fileID: 1263873483}
+  player: {fileID: 612123486}
 --- !u!1 &1240916308
 GameObject:
   m_ObjectHideFlags: 0
