@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,12 +15,16 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
 	public FishAI fish;
 	public int damage;
+	public GameObject losePanel;
+	public GameObject player; 
 	
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
 		dodgePosition = Position.MID;
+		losePanel.SetActive(false);
+		player.SetActive(true); 
     }
 
     // Update is called once per frame
@@ -44,6 +49,15 @@ public class PlayerController : MonoBehaviour
 		{
 			playAnimation("right dodge");
 			dodgePosition = Position.RIGHT;
+		}
+
+
+		if (currentHealth <= 0)
+		{
+			Debug.Log("You died");
+			losePanel.SetActive(true);
+			player.SetActive(false); 
+			
 		}
     }
 	
@@ -105,6 +119,6 @@ public class PlayerController : MonoBehaviour
 	
 	private void takeDamage()
 	{
-		currentHealth -= 1;
+		currentHealth -= 50;
 	}
 }

@@ -16,6 +16,7 @@ public class MenuButtons : MonoBehaviour
 	{
 		SceneManager.LoadScene("MainGame");
 	}
+
 	
 	public void openSettingPanel()
 	{
