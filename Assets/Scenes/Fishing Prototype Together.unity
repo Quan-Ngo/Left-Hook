@@ -1228,9 +1228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8fa3b6075b2fe349be884f41d4ac6f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowSpeed: 1
+  arrowSpeed: 0.23
   curColor: 
-  fishingMinigameManager: {fileID: 0}
+  fishingMinigameManager: {fileID: 6485688345095454838}
 --- !u!50 &1705545984
 Rigidbody2D:
   serializedVersion: 4
@@ -1251,7 +1251,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &1758950310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,6 +1392,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6485688345088538989, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
+      propertyPath: boxer
+      value: 
+      objectReference: {fileID: 4178175226232412117, guid: 9ce3fad0bc7725d4093aef04b1239bf7, type: 3}
+    - target: {fileID: 6485688345088538989, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: distanceDisplay
       value: 
       objectReference: {fileID: 1087578397}
@@ -1401,3 +1405,14 @@ PrefabInstance:
       objectReference: {fileID: 336162696}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
+--- !u!114 &6485688345095454838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6485688345088538989, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
+  m_PrefabInstance: {fileID: 6485688345095454837}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d77f700922e54a43950f1e5c1f3274d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

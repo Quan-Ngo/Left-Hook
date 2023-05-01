@@ -19,6 +19,8 @@ public abstract class FishAI : MonoBehaviour
 	[SerializeField] protected Slider healthBar;
 	
 	protected int currentHealth;
+
+	public GameObject winPanel; 
 	
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,18 @@ public abstract class FishAI : MonoBehaviour
 		currentHealth = maxHealth;
 		currentStunVal = 0;
         StartCoroutine(neutralState());
+		winPanel.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (currentHealth <= 0)
+		{
+			Debug.Log("You won!");
+            stunLock = true;
+            winPanel.SetActive(true);
+		
+		}
     }
 
     IEnumerator neutralState()
