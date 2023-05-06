@@ -33,13 +33,7 @@ public abstract class FishAI : MonoBehaviour
 
     private void Update()
     {
-        if (currentHealth <= 0)
-		{
-			Debug.Log("You won!");
-            stunLock = true;
-            winPanel.SetActive(true);
-		
-		}
+        
     }
 
     IEnumerator neutralState()
@@ -96,6 +90,11 @@ public abstract class FishAI : MonoBehaviour
 		animator.SetTrigger("GetHit");
 		currentHealth -= damage;
 		healthBar.value = (float) currentHealth / (float) maxHealth;
+		
+		if (currentHealth <= 0)
+		{
+			Death();
+		}
 	}
 	
 	private void checkStun()
@@ -109,6 +108,13 @@ public abstract class FishAI : MonoBehaviour
 		{
 			blockState = BlockStates.ALL;
 		}
+	}
+	
+	public void Death()
+	{
+		Debug.Log("You won!");
+		moneyManager.instance.addMoney(moneyValue);
+		Destroy(gameObject);
 	}
 	
 	protected abstract void attack();

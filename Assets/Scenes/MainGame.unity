@@ -1705,7 +1705,7 @@ MonoBehaviour:
   stunLockDuration: 3
   stunThreshhold: 3
   currentStunVal: 0
-  moneyValue: 1
+  moneyValue: 3
   healthBar: {fileID: 914393349}
   winPanel: {fileID: 786270577}
 --- !u!1 &1348618557
@@ -2049,6 +2049,51 @@ RectTransform:
   m_AnchoredPosition: {x: -44, y: 176}
   m_SizeDelta: {x: 1232.41, y: 306.6}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2068754086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2068754088}
+  - component: {fileID: 2068754087}
+  m_Layer: 0
+  m_Name: MoneyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2068754087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068754086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde000497e03ff24ebd28fb75ab9ac2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMoney: 0
+--- !u!4 &2068754088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068754086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.1397226, y: -0.87289625, z: -0.056251016}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108441546
 GameObject:
   m_ObjectHideFlags: 0
