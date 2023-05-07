@@ -27,8 +27,9 @@ public abstract class FishAI : MonoBehaviour
     {
 		currentHealth = maxHealth;
 		currentStunVal = 0;
+		healthBar.value = (float) currentHealth / (float) maxHealth;
+		stunLock = false;
         StartCoroutine(neutralState());
-		winPanel.SetActive(false);
     }
 
     private void Update()
@@ -114,6 +115,7 @@ public abstract class FishAI : MonoBehaviour
 	{
 		Debug.Log("You won!");
 		moneyManager.instance.addMoney(moneyValue);
+		FishingMinigameManager.instance.fightComplete();
 		Destroy(gameObject);
 	}
 	
