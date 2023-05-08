@@ -14,11 +14,13 @@ public class moneyManager : MonoBehaviour
         if (instance == null)
 		{
 			instance = this;
+			DontDestroyOnLoad(this);
 		}
 		else
 		{
 			Destroy(this);
 		}
+		
     }
 
     // Update is called once per frame

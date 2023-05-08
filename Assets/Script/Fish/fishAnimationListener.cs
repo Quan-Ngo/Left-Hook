@@ -5,7 +5,7 @@ using UnityEngine;
 public class fishAnimationListener : MonoBehaviour
 {
 	[SerializeField] private FishAI fish;
-	[SerializeField] private PlayerController player;
+	//[SerializeField] private PlayerController player;
 	
 	public void startRecovery()
 	{
@@ -14,16 +14,19 @@ public class fishAnimationListener : MonoBehaviour
 	
 	public void hitLeft()
 	{
-		player.getHit("left");
+		fish.hitPlayer("left");
+		//player.getHit("left");
 	}
 	
 	public void hitRight()
 	{
-		player.getHit("right");
+		fish.hitPlayer("right");
+		//player.getHit("right");
 	}
 	
 	public void hitMid()
 	{
-		player.getHit("mid");
+		fish.hitPlayer("mid");
+		//player.getHit("mid");
 	}
 }

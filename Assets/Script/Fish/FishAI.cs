@@ -16,19 +16,21 @@ public abstract class FishAI : MonoBehaviour
 	[SerializeField] protected int stunThreshhold;
 	[SerializeField] protected int currentStunVal;
 	[SerializeField] protected int moneyValue;
-	[SerializeField] protected Slider healthBar;
 	
 	protected int currentHealth;
 
+	public Slider healthBar;
 	public GameObject winPanel; 
+	public PlayerController player;
 	
     // Start is called before the first frame update
     void Start()
     {
 		currentHealth = maxHealth;
 		currentStunVal = 0;
+		healthBar.value = (float) currentHealth / (float) maxHealth;
+		stunLock = false;
         StartCoroutine(neutralState());
-		winPanel.SetActive(false);
     }
 
     private void Update()
@@ -114,7 +116,13 @@ public abstract class FishAI : MonoBehaviour
 	{
 		Debug.Log("You won!");
 		moneyManager.instance.addMoney(moneyValue);
+		PunchingGameManager.instance.fightComplete();
 		Destroy(gameObject);
+	}
+	
+	public void hitPlayer(string hitPos)
+	{
+		player.getHit(hitPos);
 	}
 	
 	protected abstract void attack();

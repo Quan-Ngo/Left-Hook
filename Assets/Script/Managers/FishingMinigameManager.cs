@@ -19,33 +19,47 @@ public class FishingMinigameManager : MonoBehaviour
 	[SerializeField] private Text mashButtonDisplay;
 	[SerializeField] private Text distanceDisplay;
 	[SerializeField] private float timeLimit;
-	[SerializeField] private GameObject boxer;
-	[SerializeField] private GameObject fish;
-	[SerializeField] private GameObject HPBar;
 	
+	private bool inFishingGame;
 	private float reelDistance;
+	
+	public static FishingMinigameManager instance;
 	
     // Start is called before the first frame update
     void Start()
     {
+		if (instance != null)
+		{
+			Destroy(this);
+		}
+		else
+		{
+			instance = this;
+		}
+		
 		reelDistance = defaultReelDistance;
 		StartCoroutine(waitForNextBite());
+		inFishingGame = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.LeftArrow) && buttonToMash == ButtonToMash.LEFT) || (Input.GetKeyDown(KeyCode.RightArrow) && buttonToMash == ButtonToMash.RIGHT) || (Input.GetKeyDown(KeyCode.DownArrow) && buttonToMash == ButtonToMash.DOWN))
+        if (inFishingGame && ((Input.GetKeyDown(KeyCode.LeftArrow) && buttonToMash == ButtonToMash.LEFT) || (Input.GetKeyDown(KeyCode.RightArrow) && buttonToMash == ButtonToMash.RIGHT) || (Input.GetKeyDown(KeyCode.DownArrow) && buttonToMash == ButtonToMash.DOWN)))
         {
 			reelDistance -= reelStrength;
+			checkReelDistance();
         }
 		distanceDisplay.text = "Fish distance: " + (int) reelDistance;
-		
+    }
+	
+	private void checkReelDistance()
+	{
 		if (reelDistance <= 0)
 		{
 			fishGameSuccess();
 		}
-    }
+	}
 	
 	private void fishGameSuccess()
 	{
@@ -53,10 +67,15 @@ public class FishingMinigameManager : MonoBehaviour
 		
 		mashButtonDisplay.enabled = false;
 		distanceDisplay.enabled = false;
+		inFishingGame = false;
 		
-		boxer.SetActive(true);
+		/*boxer.SetActive(true);
 		fish.SetActive(true);
-		HPBar.SetActive(true);
+		HPBar.SetActive(true);*/
+		
+		//gameObject.SetActive(false);
+		
+		PunchingGameManager.instance.startPunchingGame();
 	}
 	
 	public void timingResult(string color)
@@ -66,9 +85,11 @@ public class FishingMinigameManager : MonoBehaviour
 		{
 			case "Green":
 				reelDistance -= greenBonus;
+				checkReelDistance();
 				break;
 			case "Red":
 				reelDistance += redPenalty;
+				checkReelDistance();
 				break;
 		}
 	}
@@ -157,5 +178,11 @@ public class FishingMinigameManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds(timeLimit);
 		fishEscape();
+	}
+	
+	public void startFishing()
+	{
+		inFishingGame = true;
+		StartCoroutine(waitForNextBite());
 	}
 }
