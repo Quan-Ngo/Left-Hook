@@ -45,7 +45,7 @@ public class PunchingGameManager : MonoBehaviour
 	
 	public void fightComplete()
 	{
-		boxer.SetActive(false);
+		boxer.GetComponent<PlayerController>().endFight();
 		HPBar.SetActive(false);
 		FishingMinigameManager.instance.startFishing();
 	}

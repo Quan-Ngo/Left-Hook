@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 	public FishAI fish;
 	public int damage;
 	public GameObject losePanel;
-	public GameObject player; 
+	//public GameObject player; 
 	
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
 		dodgePosition = Position.MID;
 		losePanel.SetActive(false);
-		player.SetActive(true); 
+		//player.SetActive(true); 
     }
 
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 		{
 			Debug.Log("You died");
 			losePanel.SetActive(true);
-			player.SetActive(false); 
+			gameObject.SetActive(false); 
 			
 		}
     }
@@ -121,4 +121,12 @@ public class PlayerController : MonoBehaviour
 	{
 		currentHealth -= 50;
 	}
+	
+	public void endFight()
+	{
+		endAnimationLock();
+		resetDodgePosition();
+		gameObject.SetActive(false);
+	}
+		
 }
