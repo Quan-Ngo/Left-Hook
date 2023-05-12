@@ -92,34 +92,34 @@ public class PlayerController : MonoBehaviour
 		dodgePosition = Position.MID;
 	}
 	
-	public void getHit(string hitPos)
+	public void getHit(string hitPos, int damage)
 	{
 		switch (hitPos)
 		{
 			case "left":
 				if (dodgePosition == Position.LEFT)
 				{
-					takeDamage();
+					takeDamage(damage);
 				}
 				break;
 			case "right":
 				if (dodgePosition == Position.LEFT)
 				{
-					takeDamage();
+					takeDamage(damage);
 				}
 				break;
 			case "mid":
 				if (dodgePosition == Position.MID)
 				{
-					takeDamage();
+					takeDamage(damage);
 				}
 				break;
 		}
 	}
 	
-	private void takeDamage()
+	private void takeDamage(int damage)
 	{
-		currentHealth -= 50;
+		currentHealth -= damage;
 	}
 	
 	public void endFight()

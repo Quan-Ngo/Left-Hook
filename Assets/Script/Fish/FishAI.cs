@@ -16,6 +16,7 @@ public abstract class FishAI : MonoBehaviour
 	[SerializeField] protected int stunThreshhold;
 	[SerializeField] protected int currentStunVal;
 	[SerializeField] protected int moneyValue;
+	[SerializeField] protected int damage;
 	
 	protected int currentHealth;
 
@@ -122,7 +123,7 @@ public abstract class FishAI : MonoBehaviour
 	
 	public void hitPlayer(string hitPos)
 	{
-		player.getHit(hitPos);
+		player.getHit(hitPos, damage);
 	}
 	
 	protected abstract void attack();

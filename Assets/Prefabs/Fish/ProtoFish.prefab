@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a2e77bb897da644be4add5d91fbd41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 30
   timeBetweenAttacks: 1
   animator: {fileID: 8563912853245912749}
   blockState: 0
@@ -54,6 +54,7 @@ MonoBehaviour:
   stunThreshhold: 3
   currentStunVal: 0
   moneyValue: 3
+  damage: 5
   healthBar: {fileID: 0}
   winPanel: {fileID: 0}
   player: {fileID: 0}
