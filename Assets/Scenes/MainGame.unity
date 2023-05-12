@@ -999,13 +999,21 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6485688343295395349, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485688343295395349, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6485688343392115961, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_Color.a
-      value: 0.15686275
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6485688343392115961, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6485688343837927745, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_IsActive
@@ -1013,15 +1021,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6485688344272718866, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3032529
+      value: 0.93834215
       objectReference: {fileID: 0}
     - target: {fileID: 6485688344272718866, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.04
+      value: 3.61
       objectReference: {fileID: 0}
     - target: {fileID: 6485688344272718876, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6485688345088538978, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_Name
@@ -1089,11 +1097,19 @@ PrefabInstance:
       objectReference: {fileID: 612123485}
     - target: {fileID: 6485688345088538989, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: timeLimit
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6485688345088538989, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: redPenalty
       value: 1.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485688345088538989, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
+      propertyPath: reelStrength
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485688345088538989, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
+      propertyPath: fishingBarRate
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6485688345088538989, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: distanceDisplay
@@ -1109,7 +1125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6485688345207045701, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6485688345207045723, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_LocalScale.x
@@ -1117,7 +1133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6485688345207045723, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.96
+      value: 1.69
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
