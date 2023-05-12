@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
 	private enum Position {LEFT, RIGHT, MID}
 	private bool animationLock;
+	private bool lastPunchLeft = false; // Added this line to track the last punch direction
+	private bool fishStunned;
 	
 	[SerializeField] private Position dodgePosition;
 	[SerializeField] private int maxHealth;
@@ -24,21 +26,36 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
 		dodgePosition = Position.MID;
 		losePanel.SetActive(false);
+		fishStunned = fish.IsStunned(); // Get the fish's stunLock status
 		//player.SetActive(true); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && !animationLock)
+        if (Input.GetButtonDown("Fire1") && (!animationLock || (fishStunned && !lastPunchLeft)))
         {
             playAnimation("left punch");
 			fish.getHit(damage);
+			lastPunchLeft = true; // Update the last punch direction
+			
+            if (fishStunned) // Add this block to end the animation lock early if fish is stunned
+            {
+                endAnimationLock();
+            }
+			fishStunned = fish.IsStunned();
         }
-        else if (Input.GetButtonDown("Fire2") && !animationLock)
+        else if (Input.GetButtonDown("Fire2") && (!animationLock || (fishStunned && lastPunchLeft)))
         {
 			playAnimation("right punch");
 			fish.getHit(damage);
+			
+			lastPunchLeft = false; // Update the last punch direction
+            if (fishStunned) // Add this block to end the animation lock early if fish is stunned
+            {
+                endAnimationLock();
+            }
+			fishStunned = fish.IsStunned();
         }
 		else if (Input.GetKeyDown(KeyCode.LeftArrow) && !animationLock)
 		{

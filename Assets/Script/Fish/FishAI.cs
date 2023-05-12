@@ -126,5 +126,10 @@ public abstract class FishAI : MonoBehaviour
 		player.getHit(hitPos, damage);
 	}
 	
+	public bool IsStunned()
+	{
+		return stunLock;
+	}
+	
 	protected abstract void attack();
 }
