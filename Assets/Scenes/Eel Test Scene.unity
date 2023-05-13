@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4178175226232412117, guid: 9ce3fad0bc7725d4093aef04b1239bf7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4178175226232412119, guid: 9ce3fad0bc7725d4093aef04b1239bf7, type: 3}
       propertyPath: m_Sprite
@@ -231,7 +231,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 244, y: 8.4}
   m_SizeDelta: {x: 16.1, y: 87.4}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -470,8 +470,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456242472}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0.67, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 537248007}
@@ -590,18 +590,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37759f68e47ea7147a69b9f8ed9cdcc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 1000
   timeBetweenAttacks: 1
   animator: {fileID: 456242473}
   blockState: 0
   stunLock: 0
-  stunLockDuration: 1.5
+  stunLockDuration: 3
   stunThreshhold: 6
   currentStunVal: 0
   moneyValue: 5
   damage: 0
-  healthBar: {fileID: 0}
-  player: {fileID: 0}
+  currentHealth: 0
+  healthBar: {fileID: 914393349}
+  player: {fileID: 612123486}
 --- !u!4 &537248007
 Transform:
   m_ObjectHideFlags: 0
@@ -946,7 +947,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   anim: {fileID: 612123487}
-  fish: {fileID: 0}
+  fish: {fileID: 537248006}
   damage: 1
   losePanel: {fileID: 905907879}
 --- !u!95 &612123487 stripped
@@ -1214,7 +1215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6485688345088538978, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6485688345088538988, guid: 82d61eb899aaa1f45a37abb789ed0164, type: 3}
       propertyPath: m_RootOrder
@@ -1348,7 +1349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &914393348
 RectTransform:
   m_ObjectHideFlags: 0
