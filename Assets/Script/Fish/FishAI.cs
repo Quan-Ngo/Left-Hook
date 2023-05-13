@@ -21,7 +21,6 @@ public abstract class FishAI : MonoBehaviour
 	protected int currentHealth;
 
 	public Slider healthBar;
-	public GameObject winPanel; 
 	public PlayerController player;
 	
     // Start is called before the first frame update
