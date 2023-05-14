@@ -21,11 +21,10 @@ public abstract class FishAI : MonoBehaviour
 	protected int currentHealth;
 
 	public Slider healthBar;
-	public GameObject winPanel; 
 	public PlayerController player;
 	
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
 		currentHealth = maxHealth;
 		currentStunVal = 0;
@@ -34,21 +33,16 @@ public abstract class FishAI : MonoBehaviour
         StartCoroutine(neutralState());
     }
 
-    private void Update()
-    {
-        
-    }
-
-    IEnumerator neutralState()
+    protected IEnumerator neutralState()
 	{
 		blockState = BlockStates.ALL;
 		if (maxHealth > 0){
-			yield return new WaitForSeconds(timeBetweenAttacks + Random.Range(-0.5f, 0.5f));
+			yield return new WaitForSeconds(System.Math.Max(timeBetweenAttacks + Random.Range(-0.5f, 0.5f), 0));
 			attack();
 		}
 	}
 	
-	public void recover()
+	public virtual void recover()
 	{
 		if (!stunLock)
 		{
@@ -57,7 +51,7 @@ public abstract class FishAI : MonoBehaviour
 		}
 	}
 	
-	public void getHit(int damage)
+	public virtual void getHit(int damage)
 	{
 		if (stunLock)
 		{

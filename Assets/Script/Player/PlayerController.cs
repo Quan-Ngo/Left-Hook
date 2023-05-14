@@ -131,6 +131,9 @@ public class PlayerController : MonoBehaviour
 					takeDamage(damage);
 				}
 				break;
+			case "all":
+				takeDamage(damage);
+				break;
 		}
 	}
 	
