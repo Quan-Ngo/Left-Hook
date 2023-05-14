@@ -33,11 +33,6 @@ public abstract class FishAI : MonoBehaviour
         StartCoroutine(neutralState());
     }
 
-    private void Update()
-    {
-        
-    }
-
     protected IEnumerator neutralState()
 	{
 		blockState = BlockStates.ALL;
@@ -56,7 +51,7 @@ public abstract class FishAI : MonoBehaviour
 		}
 	}
 	
-	public void getHit(int damage)
+	public virtual void getHit(int damage)
 	{
 		if (stunLock)
 		{

@@ -599,10 +599,10 @@ MonoBehaviour:
   stunThreshhold: 6
   currentStunVal: 0
   moneyValue: 5
-  damage: 0
-  currentHealth: 0
+  damage: 5
   healthBar: {fileID: 914393349}
   player: {fileID: 612123486}
+  elecFieldDamage: 2
 --- !u!4 &537248007
 Transform:
   m_ObjectHideFlags: 0

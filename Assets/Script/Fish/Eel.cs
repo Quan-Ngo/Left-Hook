@@ -6,6 +6,8 @@ public class Eel : FishAI
 {
 	private bool electrified;
 	
+	[SerializeField] private int elecFieldDamage;
+	
     // Start is called before the first frame update
 	protected override void Start()
     {
@@ -23,6 +25,18 @@ public class Eel : FishAI
 		else
 		{
 			base.recover();
+		}
+	}
+	
+	public override void getHit(int damage)
+	{
+		if (electrified)
+		{
+			player.getHit("all", elecFieldDamage);
+		}
+		else
+		{
+			base.getHit(damage);
 		}
 	}
 	
