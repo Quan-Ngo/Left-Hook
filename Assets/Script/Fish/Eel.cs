@@ -59,20 +59,24 @@ public class Eel : FishAI
 			else
 			{
 				electrified = true;
-				recover();
+				animator.SetTrigger("Electrify");
 			}
 		}
 		else
 		{
-			chosenAttack = Random.Range(0, 2);
-			switch (chosenAttack)
+			chosenAttack = Random.Range(0, 7);
+			if (chosenAttack <= 2)
 			{
-				case 0:
-					animator.SetTrigger("UpperCutR");
-					break;
-				case 1:
-					animator.SetTrigger("UpperCutL");
-					break;
+				animator.SetTrigger("UpperCutR");
+			}
+			else if (chosenAttack <= 5 && chosenAttack > 2)
+			{
+				animator.SetTrigger("UpperCutL");
+			}
+			else
+			{
+				electrified = false;
+				animator.SetTrigger("Super");
 			}
 		}
 	}
