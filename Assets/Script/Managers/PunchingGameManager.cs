@@ -8,7 +8,9 @@ public class PunchingGameManager : MonoBehaviour
 	[SerializeField] private GameObject boxer;
 	[SerializeField] private GameObject fish;
 	[SerializeField] private GameObject HPBar;
-	
+	[SerializeField] private GameObject fishingButton;  
+	[SerializeField] private GameObject shopButton;
+
 	public static PunchingGameManager instance;
 	
     // Start is called before the first frame update
@@ -48,5 +50,8 @@ public class PunchingGameManager : MonoBehaviour
 		boxer.GetComponent<PlayerController>().endFight();
 		HPBar.SetActive(false);
 		FishingMinigameManager.instance.startFishing();
+
+		fishingButton.SetActive(true);
+		shopButton.SetActive(true);
 	}
 }

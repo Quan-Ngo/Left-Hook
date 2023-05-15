@@ -148,5 +148,10 @@ public class PlayerController : MonoBehaviour
 		resetDodgePosition();
 		gameObject.SetActive(false);
 	}
-		
+
+	public void ResetHealth()
+	{
+		currentHealth = maxHealth;
+	}
+
 }

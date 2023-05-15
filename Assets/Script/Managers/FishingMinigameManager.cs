@@ -29,17 +29,17 @@ public class FishingMinigameManager : MonoBehaviour
     void Start()
     {
 		if (instance != null)
-		{
-			Destroy(this);
-		}
-		else
-		{
-			instance = this;
-		}
+    {
+        Destroy(this);
+    }
+    else
+    {
+        instance = this;
+    }
 		
-		reelDistance = defaultReelDistance;
-		StartCoroutine(waitForNextBite());
-		inFishingGame = true;
+    reelDistance = defaultReelDistance;
+    // StartCoroutine(waitForNextBite()); // Commented out as it conflicts with fishing button code
+    inFishingGame = false; // Set this to false
     }
 
     // Update is called once per frame
@@ -99,7 +99,7 @@ public class FishingMinigameManager : MonoBehaviour
 		StopAllCoroutines();
 		mashButtonDisplay.enabled = false;
 		distanceDisplay.enabled = false;
-		StartCoroutine(waitForNextBite());
+		// dont need this: StartCoroutine(waitForNextBite());
 	}
 	
 	IEnumerator waitForNextBite()
@@ -182,6 +182,10 @@ public class FishingMinigameManager : MonoBehaviour
 	
 	public void startFishing()
 	{
+		// dont need this: inFishingGame = true;
+		// dont need this: StartCoroutine(waitForNextBite());
+
+		reelDistance = defaultReelDistance;
 		inFishingGame = true;
 		StartCoroutine(waitForNextBite());
 	}
